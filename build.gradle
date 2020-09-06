@@ -13,7 +13,7 @@ ext {
     // バージョン定義
     versionMajor = 0
     versionMinor = 0
-    versionPatch = 1
+    versionPatch = 2
 
     // カスタムパッケージ名
     customPackageName = 'aws-s3'
@@ -45,7 +45,7 @@ configurations {
 dependencies {
 
     // Core Library
-    api group: 'com.epion_t3', name: 'epion-t3-core', version: '0.0.1'
+    api group: 'com.epion_t3', name: 'epion-t3-core', version: '0.0.2'
 
     // AWS BOM
     implementation platform('software.amazon.awssdk:bom:2.14.11')

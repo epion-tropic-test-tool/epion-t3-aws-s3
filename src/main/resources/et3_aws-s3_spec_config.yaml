@@ -1,0 +1,181 @@
+t3: 1.0
+#####################################
+# 対象言語
+#####################################
+languages:
+  - ja_JP
+#####################################
+# カスタム機能定義
+#####################################
+info:
+  name: aws-s3
+  customPackage: com.epion_t3.aws.s3
+  summary:
+    - lang: ja_JP
+      contents: "AWSのS3へのアクセスを行う機能を提供します。"
+  description:
+    - lang: ja_JP
+      contents: "AmazonWebService（AWS）のSimpleStorageService（S3）への各種アクセスを行う機能を提供します。事前データの配置、エビデンスの取得などに利用できるPUT、GETを代表とした機能です。"
+#####################################
+# コマンド定義
+#####################################
+commands:
+  ##########################
+  # AwsS3Get
+  ##########################
+  - id: AwsS3Get
+    evidenceCommand: true
+    assertCommand: false
+    summary:
+      - lang: ja_JP
+        contents: "AWS S3からオブジェクトを取得します。"
+    testItem:
+      - order: 1
+        summary:
+          - lang: ja_JP
+            contents: AWS S3から、バケット「${bucket}」、キー「${key}」を取得します。
+    function:
+      - order: 1
+        summary:
+          - lang: ja_JP
+            contents: "AWS S3からオブジェクトを取得します。"
+      - order: 2
+        summary:
+          - lang: ja_JP
+            contents: "AWS S3から同じオブジェクトを取得した場合、別エビデンスとして取得します。"
+      - order: 3
+        summary:
+          - lang: ja_JP
+            contents: "このコマンドが動作するには、AWSへの接続設定（Configuration）が必要になります。"
+    structure:
+      - order: 1
+        name: id
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: コマンドのID
+      - order: 2
+        name: command
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: 「AwsS3Get」固定
+      - order: 3
+        name: summary
+        required: false
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: コマンドの概要（任意）
+      - order: 4
+        name: description
+        required: false
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: コマンドの詳細（任意）
+      - order: 6
+        name: bucket
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: "s3のBucket"
+      - order: 7
+        name: key
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: "s3のKey"
+  ##########################
+  # AwsS3Put
+  ##########################
+  - id: AwsS3Put
+    evidenceCommand: false
+    assertCommand: false
+    summary:
+      - lang: ja_JP
+        contents: "AWS S3にオブジェクトを登録します。"
+    testItem:
+      - order: 1
+        summary:
+          - lang: ja_JP
+            contents: "「${target}」を、AWS S3のバケット「${bucket}」、キー「${key}」を取得します。"
+    function:
+      - order: 1
+        summary:
+          - lang: ja_JP
+            contents: "AWS S3からオブジェクトを取得します。"
+      - order: 2
+        summary:
+          - lang: ja_JP
+            contents: "AWS S3から同じオブジェクトを取得した場合、別エビデンスとして取得します。"
+      - order: 3
+        summary:
+          - lang: ja_JP
+            contents: "このコマンドが動作するには、AWSへの接続設定（Configuration）が必要になります。"
+    structure:
+      - order: 1
+        name: id
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: コマンドのID
+      - order: 2
+        name: command
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: 「AwsS3Put」固定
+      - order: 3
+        name: summary
+        required: false
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: コマンドの概要（任意）
+      - order: 4
+        name: description
+        required: false
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: コマンドの詳細（任意）
+      - order: 6
+        name: target
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: "登録対象のファイルの相対パス"
+      - order: 7
+        name: bucket
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: "s3のBucket"
+      - order: 8
+        name: key
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: "s3のKey"
+#####################################
+# メッセージ定義
+#####################################
+messages:
+  - id: com.epion_t3.aws.s3.err.9001
+    message:
+      - lang: ja_JP
+        contents: "対象（target）のバケット及びキーへアクセスできません.Bucket:{0}, Path:{1}"
+  - id: com.epion_t3.aws.s3.err.9002
+    message:
+      - lang: ja_JP
+        contents: "対象（target）のバケット及びキーは存在しません.Bucket:{0}, Path:{1}"

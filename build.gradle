@@ -48,7 +48,7 @@ dependencies {
     api group: 'com.epion_t3', name: 'epion-t3-core', version: '0.0.2'
 
     // AWS BOM
-    api platform('software.amazon.awssdk:bom:2.14.11')
+    implementation platform('software.amazon.awssdk:bom:2.14.11')
 
     // S3
     api group: 'software.amazon.awssdk', name: 's3'

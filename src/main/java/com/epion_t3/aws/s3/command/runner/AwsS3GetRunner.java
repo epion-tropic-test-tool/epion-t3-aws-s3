@@ -1,7 +1,8 @@
 package com.epion_t3.aws.s3.command.runner;
 
+import com.epion_t3.aws.core.configuration.AwsCredentialsProviderConfiguration;
+import com.epion_t3.aws.core.holder.AwsCredentialsProviderHolder;
 import com.epion_t3.aws.s3.command.model.AwsS3Get;
-import com.epion_t3.aws.s3.common.AwsCredentialsProviderHolder;
 import com.epion_t3.aws.s3.messages.AwsS3Messages;
 import com.epion_t3.core.command.bean.CommandResult;
 import com.epion_t3.core.command.runner.impl.AbstractCommandRunner;
@@ -22,9 +23,12 @@ public class AwsS3GetRunner extends AbstractCommandRunner<AwsS3Get> {
     @Override
     public CommandResult execute(AwsS3Get command, Logger logger) throws Exception {
 
+        AwsCredentialsProviderConfiguration configuration =
+                referConfiguration(command.getCredentialsConfigRef());
+
         AwsCredentialsProvider credencialsProvider =
                 AwsCredentialsProviderHolder.getInstance()
-                        .getCredentialsProvider(command.getCredencialsConfigRef());
+                        .getCredentialsProvider(configuration);
 
         S3Client s3 = S3Client.builder().credentialsProvider(credencialsProvider).build();
 

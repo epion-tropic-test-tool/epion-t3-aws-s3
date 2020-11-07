@@ -1,3 +1,4 @@
+/* Copyright (c) 2017-2020 Nozomu Takashima. */
 package com.epion_t3.aws.s3.command.runner;
 
 import com.epion_t3.aws.core.configuration.AwsCredentialsProviderConfiguration;
@@ -28,16 +29,17 @@ public class AwsS3PutRunner extends AbstractCommandRunner<AwsS3Put> {
     @Override
     public CommandResult execute(AwsS3Put command, Logger logger) throws Exception {
 
-        AwsCredentialsProviderConfiguration configuration =
-                referConfiguration(command.getCredentialsConfigRef());
+        AwsCredentialsProviderConfiguration configuration = referConfiguration(command.getCredentialsConfigRef());
 
-        AwsCredentialsProvider credencialsProvider =
-                AwsCredentialsProviderHolder.getInstance()
-                        .getCredentialsProvider(configuration);
+        AwsCredentialsProvider credencialsProvider = AwsCredentialsProviderHolder.getInstance()
+                .getCredentialsProvider(configuration);
 
         S3Client s3 = S3Client.builder().credentialsProvider(credencialsProvider).build();
 
-        PutObjectRequest putObjectRequest = PutObjectRequest.builder().bucket(command.getBucket()).key(command.getKey()).build();
+        PutObjectRequest putObjectRequest = PutObjectRequest.builder()
+                .bucket(command.getBucket())
+                .key(command.getKey())
+                .build();
         // 配置オブジェクトのパスを解決
         Path objectPath = Paths.get(getCommandBelongScenarioDirectory(), command.getTarget());
         s3.putObject(putObjectRequest, objectPath);

@@ -9,6 +9,7 @@ languages:
 #####################################
 info:
   name: aws-s3
+  labelName: AWS S3
   customPackage: com.epion_t3.aws.s3
   summary:
     - lang: ja_JP

@@ -1,3 +1,4 @@
+/* Copyright (c) 2017-2020 Nozomu Takashima. */
 package com.epion_t3.aws.s3.command.runner;
 
 import com.epion_t3.aws.core.configuration.AwsCredentialsProviderConfiguration;
@@ -23,12 +24,10 @@ public class AwsS3GetRunner extends AbstractCommandRunner<AwsS3Get> {
     @Override
     public CommandResult execute(AwsS3Get command, Logger logger) throws Exception {
 
-        AwsCredentialsProviderConfiguration configuration =
-                referConfiguration(command.getCredentialsConfigRef());
+        AwsCredentialsProviderConfiguration configuration = referConfiguration(command.getCredentialsConfigRef());
 
-        AwsCredentialsProvider credencialsProvider =
-                AwsCredentialsProviderHolder.getInstance()
-                        .getCredentialsProvider(configuration);
+        AwsCredentialsProvider credencialsProvider = AwsCredentialsProviderHolder.getInstance()
+                .getCredentialsProvider(configuration);
 
         S3Client s3 = S3Client.builder().credentialsProvider(credencialsProvider).build();
 
@@ -37,7 +36,10 @@ public class AwsS3GetRunner extends AbstractCommandRunner<AwsS3Get> {
         Path evidencePath = getEvidencePath(command.getKey().split("/")[command.getKey().split("/").length - 1]);
 
         try {
-            GetObjectRequest getObjectRequest = GetObjectRequest.builder().bucket(command.getBucket()).key(command.getKey()).build();
+            GetObjectRequest getObjectRequest = GetObjectRequest.builder()
+                    .bucket(command.getBucket())
+                    .key(command.getKey())
+                    .build();
             s3.getObject(getObjectRequest, ResponseTransformer.toFile(evidencePath));
             // エビデンス登録
             registrationFileEvidence(evidencePath);

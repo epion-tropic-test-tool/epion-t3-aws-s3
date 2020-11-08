@@ -38,7 +38,7 @@ AmazonWebService（AWS）のSimpleStorageService（S3）への各種アクセス
 |Name|Summary|Assert|Evidence|
 |:---|:---|:---|:---|
 |[AwsS3PutObject](#AwsS3PutObject)|AWS S3にオブジェクトを登録します。  |||
-|[AwsS3DeleteObject](#AwsS3DeleteObject)|AWS S3からオブジェクトを取得します。  ||X|
+|[AwsS3DeleteObject](#AwsS3DeleteObject)|AWS S3からオブジェクトを取得します。  |||
 |[AwsS3GetObject](#AwsS3GetObject)|AWS S3からオブジェクトを取得します。  ||X|
 
 ------
@@ -61,6 +61,7 @@ commands :
   command : 「AwsS3PutObject」固定
   summary : コマンドの概要（任意）
   description : コマンドの詳細（任意）
+  credentialsConfigRef : 資格設定の参照
   target : 登録対象のファイルの相対パス
   bucket : s3のBucket
   key : s3のKey
@@ -73,7 +74,7 @@ commands :
 AWS S3からオブジェクトを取得します。
 #### Command Type
 - Assert : No
-- Evidence : __Yes__
+- Evidence : No
 
 #### Functions
 - AWS S3からオブジェクトを削除します。
@@ -111,6 +112,7 @@ commands :
   command : 「AwsS3GetObject」固定
   summary : コマンドの概要（任意）
   description : コマンドの詳細（任意）
+  credentialsConfigRef : 資格設定の参照
   bucket : s3のBucket
   key : s3のKey
 

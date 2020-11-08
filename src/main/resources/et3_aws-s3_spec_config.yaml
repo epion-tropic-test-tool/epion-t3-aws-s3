@@ -9,6 +9,7 @@ languages:
 #####################################
 info:
   name: aws-s3
+  labelName: AWS S3
   customPackage: com.epion_t3.aws.s3
   summary:
     - lang: ja_JP
@@ -21,9 +22,9 @@ info:
 #####################################
 commands:
   ##########################
-  # AwsS3Get
+  # AwsS3GetObject
   ##########################
-  - id: AwsS3Get
+  - id: AwsS3GetObject
     evidenceCommand: true
     assertCommand: false
     summary:
@@ -46,7 +47,7 @@ commands:
       - order: 3
         summary:
           - lang: ja_JP
-            contents: "このコマンドが動作するには、AWSへの接続設定（Configuration）が必要になります。"
+            contents: "このコマンドが動作するには、AWSへの接続設定（ [AwsCredentialsProviderConfiguration](https://github.com/epion-tropic-test-tool/epion-t3-aws-core/blob/master/aws-core_spec_ja_JP.md#awscredentialsproviderconfiguration) ）が必要になります。"
     structure:
       - order: 1
         name: id
@@ -61,7 +62,7 @@ commands:
         type: string
         summary:
           - lang: ja_JP
-            contents: 「AwsS3Get」固定
+            contents: 「AwsS3GetObject」固定
       - order: 3
         name: summary
         required: false
@@ -91,9 +92,9 @@ commands:
           - lang: ja_JP
             contents: "s3のKey"
   ##########################
-  # AwsS3Put
+  # AwsS3PutObject
   ##########################
-  - id: AwsS3Put
+  - id: AwsS3PutObject
     evidenceCommand: false
     assertCommand: false
     summary:
@@ -116,7 +117,7 @@ commands:
       - order: 3
         summary:
           - lang: ja_JP
-            contents: "このコマンドが動作するには、AWSへの接続設定（Configuration）が必要になります。"
+            contents: "このコマンドが動作するには、AWSへの接続設定（ [AwsCredentialsProviderConfiguration](https://github.com/epion-tropic-test-tool/epion-t3-aws-core/blob/master/aws-core_spec_ja_JP.md#awscredentialsproviderconfiguration) ）が必要になります。"
     structure:
       - order: 1
         name: id
@@ -131,7 +132,7 @@ commands:
         type: string
         summary:
           - lang: ja_JP
-            contents: 「AwsS3Put」固定
+            contents: 「AwsS3PutObject」固定
       - order: 3
         name: summary
         required: false
@@ -161,6 +162,72 @@ commands:
           - lang: ja_JP
             contents: "s3のBucket"
       - order: 8
+        name: key
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: "s3のKey"
+  ##########################
+  # AwsS3DeleteObject
+  ##########################
+  - id: AwsS3DeleteObject
+    evidenceCommand: true
+    assertCommand: false
+    summary:
+      - lang: ja_JP
+        contents: "AWS S3からオブジェクトを取得します。"
+    testItem:
+      - order: 1
+        summary:
+          - lang: ja_JP
+            contents: AWS S3から、バケット「${bucket}」、キー「${key}」を取得します。
+    function:
+      - order: 1
+        summary:
+          - lang: ja_JP
+            contents: "AWS S3からオブジェクトを削除します。"
+      - order: 2
+        summary:
+          - lang: ja_JP
+            contents: "このコマンドが動作するには、AWSへの接続設定（ [AwsCredentialsProviderConfiguration](https://github.com/epion-tropic-test-tool/epion-t3-aws-core/blob/master/aws-core_spec_ja_JP.md#awscredentialsproviderconfiguration) ）が必要になります。"
+    structure:
+      - order: 1
+        name: id
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: コマンドのID
+      - order: 2
+        name: command
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: 「AwsS3DeleteObject」固定
+      - order: 3
+        name: summary
+        required: false
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: コマンドの概要（任意）
+      - order: 4
+        name: description
+        required: false
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: コマンドの詳細（任意）
+      - order: 6
+        name: bucket
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: "s3のBucket"
+      - order: 7
         name: key
         required: true
         type: string

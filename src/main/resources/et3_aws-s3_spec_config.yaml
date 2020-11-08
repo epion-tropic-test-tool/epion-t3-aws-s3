@@ -77,6 +77,13 @@ commands:
         summary:
           - lang: ja_JP
             contents: コマンドの詳細（任意）
+      - order: 5
+        name: credentialsConfigRef
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: "資格設定の参照"
       - order: 6
         name: bucket
         required: true
@@ -147,6 +154,13 @@ commands:
         summary:
           - lang: ja_JP
             contents: コマンドの詳細（任意）
+      - order: 5
+        name: credentialsConfigRef
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: "資格設定の参照"
       - order: 6
         name: target
         required: true

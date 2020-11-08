@@ -46,7 +46,8 @@ configurations {
 dependencies {
 
     // Core Library
-    api group: 'com.epion_t3', name: 'epion-t3-core', version: '0.0.2'
+    api 'com.epion_t3:epion-t3-core:0.0.2'
+    api 'com.epion_t3:epion-t3-aws-core:0.0.1'
 
     // AWS BOM
     implementation platform('software.amazon.awssdk:bom:2.14.11')

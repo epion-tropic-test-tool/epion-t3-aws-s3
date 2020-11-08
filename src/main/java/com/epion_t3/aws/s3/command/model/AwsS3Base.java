@@ -9,5 +9,5 @@ import lombok.Setter;
 @Setter
 public class AwsS3Base extends Command {
 
-    private String credencialsConfigRef;
+    private String credentialsConfigRef;
 }

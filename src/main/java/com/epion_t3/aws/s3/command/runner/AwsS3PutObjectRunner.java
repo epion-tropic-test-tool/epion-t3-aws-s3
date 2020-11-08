@@ -30,7 +30,7 @@ public class AwsS3PutObjectRunner extends AbstractCommandRunner<AwsS3PutObject> 
     public CommandResult execute(AwsS3PutObject command, Logger logger) throws Exception {
 
         AwsCredentialsProviderConfiguration awsCredentialsProviderConfiguration = referConfiguration(
-                command.getCredencialsConfigRef());
+                command.getCredentialsConfigRef());
 
         AwsCredentialsProvider credencialsProvider = AwsCredentialsProviderHolder.getInstance()
                 .getCredentialsProvider(awsCredentialsProviderConfiguration);

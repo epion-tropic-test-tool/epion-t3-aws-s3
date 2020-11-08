@@ -25,7 +25,7 @@ public class AwsS3GetObjectRunner extends AbstractCommandRunner<AwsS3GetObject> 
     public CommandResult execute(AwsS3GetObject command, Logger logger) throws Exception {
 
         AwsCredentialsProviderConfiguration awsCredentialsProviderConfiguration = referConfiguration(
-                command.getCredencialsConfigRef());
+                command.getCredentialsConfigRef());
 
         AwsCredentialsProvider credencialsProvider = AwsCredentialsProviderHolder.getInstance()
                 .getCredentialsProvider(awsCredentialsProviderConfiguration);

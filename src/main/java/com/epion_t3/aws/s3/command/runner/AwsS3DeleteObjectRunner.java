@@ -24,7 +24,7 @@ public class AwsS3DeleteObjectRunner extends AbstractCommandRunner<AwsS3DeleteOb
     public CommandResult execute(AwsS3DeleteObject command, Logger logger) throws Exception {
 
         AwsCredentialsProviderConfiguration awsCredentialsProviderConfiguration = referConfiguration(
-                command.getCredencialsConfigRef());
+                command.getCredentialsConfigRef());
 
         AwsCredentialsProvider credencialsProvider = AwsCredentialsProviderHolder.getInstance()
                 .getCredentialsProvider(awsCredentialsProviderConfiguration);

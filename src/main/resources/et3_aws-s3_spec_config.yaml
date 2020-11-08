@@ -186,7 +186,7 @@ commands:
   # AwsS3DeleteObject
   ##########################
   - id: AwsS3DeleteObject
-    evidenceCommand: true
+    evidenceCommand: false
     assertCommand: false
     summary:
       - lang: ja_JP

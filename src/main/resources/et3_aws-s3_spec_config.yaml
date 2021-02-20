@@ -322,7 +322,7 @@ commands:
     assertCommand: false
     summary:
       - lang: ja_JP
-        contents: "AWS S3からオブジェクトリストを取得します。"
+        contents: "AWS S3からオブジェクトリストを削除します。"
     testItem:
       - order: 1
         summary:
@@ -332,7 +332,7 @@ commands:
       - order: 1
         summary:
           - lang: ja_JP
-            contents: "AWS S3からオブジェクトリストを取得します。"
+            contents: "AWS S3からオブジェクトリストを削除します。"
       - order: 2
         summary:
           - lang: ja_JP

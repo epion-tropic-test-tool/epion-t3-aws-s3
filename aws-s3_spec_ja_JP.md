@@ -39,7 +39,7 @@ AmazonWebService（AWS）のSimpleStorageService（S3）への各種アクセス
 |:---|:---|:---|:---|
 |[AwsS3PutObject](#AwsS3PutObject)|AWS S3にオブジェクトを登録します。  |||
 |[AwsS3PutObjects](#AwsS3PutObjects)|AWS S3に指定されたディレクトリ配下のオブジェクトを登録します。  |||
-|[AwsS3DeleteObjects](#AwsS3DeleteObjects)|AWS S3からオブジェクトリストを取得します。  ||X|
+|[AwsS3DeleteObjects](#AwsS3DeleteObjects)|AWS S3からオブジェクトリストを削除します。  ||X|
 |[AwsS3ListObjects](#AwsS3ListObjects)|AWS S3からオブジェクトリストを取得します。  ||X|
 |[AwsS3DeleteObject](#AwsS3DeleteObject)|AWS S3からオブジェクトを取得します。  |||
 |[AwsS3GetObject](#AwsS3GetObject)|AWS S3からオブジェクトを取得します。  ||X|
@@ -101,13 +101,13 @@ commands :
 ------
 
 ### AwsS3DeleteObjects
-AWS S3からオブジェクトリストを取得します。
+AWS S3からオブジェクトリストを削除します。
 #### Command Type
 - Assert : No
 - Evidence : __Yes__
 
 #### Functions
-- AWS S3からオブジェクトリストを取得します。
+- AWS S3からオブジェクトリストを削除します。
 - このコマンドが動作するには、AWSへの接続設定（ [AwsCredentialsProviderConfiguration](https://github.com/epion-tropic-test-tool/epion-t3-aws-core/blob/master/aws-core_spec_ja_JP.md#awscredentialsproviderconfiguration) ）が必要になります。
 
 #### Structure

@@ -38,6 +38,7 @@ AmazonWebService（AWS）のSimpleStorageService（S3）への各種アクセス
 |Name|Summary|Assert|Evidence|
 |:---|:---|:---|:---|
 |[AwsS3PutObject](#AwsS3PutObject)|AWS S3にオブジェクトを登録します。  |||
+|[AwsS3DeleteObjects](#AwsS3DeleteObjects)|AWS S3からオブジェクトリストを取得します。  ||X|
 |[AwsS3ListObjects](#AwsS3ListObjects)|AWS S3からオブジェクトリストを取得します。  ||X|
 |[AwsS3DeleteObject](#AwsS3DeleteObject)|AWS S3からオブジェクトを取得します。  |||
 |[AwsS3GetObject](#AwsS3GetObject)|AWS S3からオブジェクトを取得します。  ||X|
@@ -66,6 +67,30 @@ commands :
   target : 登録対象のファイルの相対パス
   bucket : s3のBucket
   key : s3のKey
+
+```
+
+------
+
+### AwsS3DeleteObjects
+AWS S3からオブジェクトリストを取得します。
+#### Command Type
+- Assert : No
+- Evidence : __Yes__
+
+#### Functions
+- AWS S3からオブジェクトリストを取得します。
+- このコマンドが動作するには、AWSへの接続設定（ [AwsCredentialsProviderConfiguration](https://github.com/epion-tropic-test-tool/epion-t3-aws-core/blob/master/aws-core_spec_ja_JP.md#awscredentialsproviderconfiguration) ）が必要になります。
+
+#### Structure
+```yaml
+commands : 
+  id : コマンドのID
+  command : 「AwsS3DeleteObjects」固定
+  summary : コマンドの概要（任意）
+  description : コマンドの詳細（任意）
+  bucket : s3のBucket
+  key : s3のPrefix
 
 ```
 
@@ -159,5 +184,6 @@ commands :
 |MessageID|MessageContents|
 |:---|:---|
 |com.epion_t3.aws.s3.err.9003|対象（target）のバケット及びプレフィックスは存在しません.Bucket:{0}, Prefix:{1}|
+|com.epion_t3.aws.s3.err.9004|対象（target）はディレクトリを指定する必要があります. Target:{0}|
 |com.epion_t3.aws.s3.err.9001|対象（target）のバケット及びキーへアクセスできません.Bucket:{0}, Path:{1}|
 |com.epion_t3.aws.s3.err.9002|対象（target）のバケット及びキーは存在しません.Bucket:{0}, Path:{1}|

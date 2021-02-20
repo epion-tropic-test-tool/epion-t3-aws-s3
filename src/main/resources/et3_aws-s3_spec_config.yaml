@@ -308,7 +308,7 @@ commands:
           - lang: ja_JP
             contents: "s3のBucket"
       - order: 7
-        name: key
+        name: prefix
         required: true
         type: string
         summary:
@@ -374,7 +374,91 @@ commands:
           - lang: ja_JP
             contents: "s3のBucket"
       - order: 7
-        name: key
+        name: prefix
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: "s3のPrefix"
+  ##########################
+  # AwsS3PutObjects
+  ##########################
+  - id: AwsS3PutObjects
+    evidenceCommand: false
+    assertCommand: false
+    summary:
+      - lang: ja_JP
+        contents: "AWS S3に指定されたディレクトリ配下のオブジェクトを登録します。"
+    testItem:
+      - order: 1
+        summary:
+          - lang: ja_JP
+            contents: "AWS S3のバケット「${bucket}」、Prefix「${prefix}」に対して対象ディレクトリ「$target」配下のファイルをPUTします。"
+    function:
+      - order: 1
+        summary:
+          - lang: ja_JP
+            contents: "AWS S3へ指定されたディレクトリ配下のオブジェクト（ファイル）を登録します。"
+      - order: 2
+        summary:
+          - lang: ja_JP
+            contents: "指定されたディレクトリ直下のファイルのみを対象とします。配下全てのPUTには対応していません。"
+      - order: 3
+        summary:
+          - lang: ja_JP
+            contents: "このコマンドが動作するには、AWSへの接続設定（ [AwsCredentialsProviderConfiguration](https://github.com/epion-tropic-test-tool/epion-t3-aws-core/blob/master/aws-core_spec_ja_JP.md#awscredentialsproviderconfiguration) ）が必要になります。"
+    structure:
+      - order: 1
+        name: id
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: コマンドのID
+      - order: 2
+        name: command
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: 「AwsS3PutObjects」固定
+      - order: 3
+        name: summary
+        required: false
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: コマンドの概要（任意）
+      - order: 4
+        name: description
+        required: false
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: コマンドの詳細（任意）
+      - order: 5
+        name: credentialsConfigRef
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: "資格設定の参照"
+      - order: 6
+        name: target
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: "登録対象のファイルの相対パス"
+      - order: 7
+        name: bucket
+        required: true
+        type: string
+        summary:
+          - lang: ja_JP
+            contents: "s3のBucket"
+      - order: 8
+        name: prefix
         required: true
         type: string
         summary:
@@ -396,3 +480,7 @@ messages:
     message:
       - lang: ja_JP
         contents: "対象（target）のバケット及びプレフィックスは存在しません.Bucket:{0}, Prefix:{1}"
+  - id: com.epion_t3.aws.s3.err.9004
+    message:
+      - lang: ja_JP
+        contents: "対象（target）はディレクトリを指定する必要があります. Target:{0}"

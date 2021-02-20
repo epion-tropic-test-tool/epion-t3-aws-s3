@@ -59,7 +59,7 @@ public class AwsS3DeleteObjectsRunner extends AbstractCommandRunner<AwsS3DeleteO
 
             var response = s3.deleteObjects(deleteObjectsRequest);
 
-            // 削除済のオブジェクトをログ
+            // 削除済のオブジェクトをログ出力
             logger.info("deleted target.");
             response.deleted().forEach(x -> {
                 logger.info(x.key());

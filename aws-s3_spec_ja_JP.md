@@ -38,6 +38,7 @@ AmazonWebService（AWS）のSimpleStorageService（S3）への各種アクセス
 |Name|Summary|Assert|Evidence|
 |:---|:---|:---|:---|
 |[AwsS3PutObject](#AwsS3PutObject)|AWS S3にオブジェクトを登録します。  |||
+|[AwsS3PutObjects](#AwsS3PutObjects)|AWS S3に指定されたディレクトリ配下のオブジェクトを登録します。  |||
 |[AwsS3DeleteObjects](#AwsS3DeleteObjects)|AWS S3からオブジェクトリストを取得します。  ||X|
 |[AwsS3ListObjects](#AwsS3ListObjects)|AWS S3からオブジェクトリストを取得します。  ||X|
 |[AwsS3DeleteObject](#AwsS3DeleteObject)|AWS S3からオブジェクトを取得します。  |||
@@ -72,6 +73,33 @@ commands :
 
 ------
 
+### AwsS3PutObjects
+AWS S3に指定されたディレクトリ配下のオブジェクトを登録します。
+#### Command Type
+- Assert : No
+- Evidence : No
+
+#### Functions
+- AWS S3へ指定されたディレクトリ配下のオブジェクト（ファイル）を登録します。
+- 指定されたディレクトリ直下のファイルのみを対象とします。配下全てのPUTには対応していません。
+- このコマンドが動作するには、AWSへの接続設定（ [AwsCredentialsProviderConfiguration](https://github.com/epion-tropic-test-tool/epion-t3-aws-core/blob/master/aws-core_spec_ja_JP.md#awscredentialsproviderconfiguration) ）が必要になります。
+
+#### Structure
+```yaml
+commands : 
+  id : コマンドのID
+  command : 「AwsS3PutObjects」固定
+  summary : コマンドの概要（任意）
+  description : コマンドの詳細（任意）
+  credentialsConfigRef : 資格設定の参照
+  target : 登録対象のファイルの相対パス
+  bucket : s3のBucket
+  prefix : s3のPrefix
+
+```
+
+------
+
 ### AwsS3DeleteObjects
 AWS S3からオブジェクトリストを取得します。
 #### Command Type
@@ -90,7 +118,7 @@ commands :
   summary : コマンドの概要（任意）
   description : コマンドの詳細（任意）
   bucket : s3のBucket
-  key : s3のPrefix
+  prefix : s3のPrefix
 
 ```
 
@@ -114,7 +142,7 @@ commands :
   summary : コマンドの概要（任意）
   description : コマンドの詳細（任意）
   bucket : s3のBucket
-  key : s3のPrefix
+  prefix : s3のPrefix
 
 ```
 

@@ -46,14 +46,14 @@ configurations {
 dependencies {
 
     // Core Library
-    api 'com.epion_t3:epion-t3-core:0.0.4'
-    api 'com.epion_t3:epion-t3-aws-core:0.0.1'
+    api "com.epion_t3:epion-t3-core:0.0.4"
+    api "com.epion_t3:epion-t3-aws-core:0.0.4"
 
     // AWS BOM
     implementation platform('software.amazon.awssdk:bom:2.14.11')
 
     // S3
-    api group: 'software.amazon.awssdk', name: 's3'
+    api "software.amazon.awssdk:s3"
 
     // JSON
     implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.3"

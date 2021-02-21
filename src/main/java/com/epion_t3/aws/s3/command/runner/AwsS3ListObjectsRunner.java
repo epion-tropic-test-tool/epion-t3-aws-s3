@@ -48,7 +48,7 @@ public class AwsS3ListObjectsRunner extends AbstractCommandRunner<AwsS3ListObjec
 
         // キーはスラッシュが含まれるため、そのまま保存するとエビデンスのパスが狂う
         // そのため、キーの末尾のファイル名のみをパスに利用する.
-        var evidencePath = getEvidencePath("listObjects");
+        var evidencePath = getEvidencePath("listObjects.json");
 
         try {
             var listObjectV2Request = ListObjectsV2Request.builder()

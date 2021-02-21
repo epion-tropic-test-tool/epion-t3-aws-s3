@@ -1,4 +1,4 @@
-/* Copyright (c) 2017-2020 Nozomu Takashima. */
+/* Copyright (c) 2017-2021 Nozomu Takashima. */
 package com.epion_t3.aws.s3.messages;
 
 import com.epion_t3.core.message.Messages;
@@ -9,6 +9,12 @@ import com.epion_t3.core.message.Messages;
  * @author epion-t3-devtools
  */
 public enum AwsS3Messages implements Messages {
+
+    /** 対象（target）のバケット及びプレフィックスは存在しません.Bucket:{0}, Prefix:{1} */
+    AWS_S3_ERR_9003("com.epion_t3.aws.s3.err.9003"),
+
+    /** 対象（target）はディレクトリを指定する必要があります. Target:{0} */
+    AWS_S3_ERR_9004("com.epion_t3.aws.s3.err.9004"),
 
     /** 対象（target）のバケット及びキーへアクセスできません.Bucket:{0}, Path:{1} */
     AWS_S3_ERR_9001("com.epion_t3.aws.s3.err.9001"),

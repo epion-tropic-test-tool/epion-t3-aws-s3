@@ -1,21 +1,21 @@
 /* Copyright (c) 2017-2021 Nozomu Takashima. */
 package com.epion_t3.aws.s3.command.model;
 
-import com.epion_t3.aws.s3.command.runner.AwsS3GetObjectRunner;
+import com.epion_t3.aws.s3.command.runner.AwsS3PutObjectsRunner;
 import com.epion_t3.core.common.annotation.CommandDefinition;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.bval.constraints.NotEmpty;
 
 /**
- * Get Object from AWS S3.
+ * Put Objects to AWS S3.
  *
- * @author takashno
+ * @author Nozomu Takashima.
  */
 @Getter
 @Setter
-@CommandDefinition(id = "AwsS3GetObject", runner = AwsS3GetObjectRunner.class)
-public class AwsS3GetObject extends AwsS3Base {
+@CommandDefinition(id = "AwsS3PutObjects", runner = AwsS3PutObjectsRunner.class)
+public class AwsS3PutObjects extends AwsS3Base {
 
     /**
      * S3 Bucket.
@@ -24,9 +24,9 @@ public class AwsS3GetObject extends AwsS3Base {
     private String bucket;
 
     /**
-     * S3 Path.
+     * S3 prefix.
      */
     @NotEmpty
-    private String key;
+    private String prefix;
 
 }

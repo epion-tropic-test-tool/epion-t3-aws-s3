@@ -6,15 +6,15 @@ plugins {
     id 'maven'
     id 'maven-publish'
     id 'jacoco'
-    id "com.diffplug.gradle.spotless" version "3.26.1"
-    id "com.jfrog.bintray" version "1.8.4"
+    id "com.diffplug.gradle.spotless"
+    id "com.jfrog.bintray"
 }
 
 ext {
     // バージョン定義
     versionMajor = 0
     versionMinor = 0
-    versionPatch = 2
+    versionPatch = 4
 
     // カスタムパッケージ名
     customPackageName = 'aws-s3'
@@ -46,7 +46,7 @@ configurations {
 dependencies {
 
     // Core Library
-    api 'com.epion_t3:epion-t3-core:0.0.2'
+    api 'com.epion_t3:epion-t3-core:0.0.4'
     api 'com.epion_t3:epion-t3-aws-core:0.0.1'
 
     // AWS BOM
@@ -75,8 +75,8 @@ tasks.withType(Javadoc) {
 
 // Java
 tasks.withType(JavaCompile) {
-    sourceCompatibility = '1.8'
-    targetCompatibility = '1.8'
+    sourceCompatibility = '11'
+    targetCompatibility = '11'
     it.options.encoding = 'UTF-8'
 }
 

@@ -10,6 +10,7 @@ import com.epion_t3.core.command.bean.CommandResult;
 import com.epion_t3.core.command.runner.impl.AbstractCommandRunner;
 import com.epion_t3.core.exception.SystemException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -34,6 +35,7 @@ public class AwsS3ListObjectsRunner extends AbstractCommandRunner<AwsS3ListObjec
     private static final ObjectMapper objectMapper = new ObjectMapper();
     static {
         objectMapper.findAndRegisterModules();
+        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
     }
 
     /**

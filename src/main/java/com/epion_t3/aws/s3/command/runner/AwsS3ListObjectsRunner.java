@@ -19,6 +19,7 @@ import software.amazon.awssdk.services.s3.model.NoSuchKeyException;
 import java.io.FileOutputStream;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.stream.Collectors;
 
 /**
@@ -28,9 +29,12 @@ import java.util.stream.Collectors;
 public class AwsS3ListObjectsRunner extends AbstractCommandRunner<AwsS3ListObjects> {
 
     /**
-     * オブジェクトマッパー
+     * オブジェクトマッパー.
      */
-    private ObjectMapper objectMapper = new ObjectMapper();
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+    static {
+        objectMapper.findAndRegisterModules();
+    }
 
     /**
      * {@inheritDoc}

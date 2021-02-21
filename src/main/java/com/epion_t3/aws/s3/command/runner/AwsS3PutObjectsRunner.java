@@ -41,12 +41,14 @@ public class AwsS3PutObjectsRunner extends AbstractCommandRunner<AwsS3PutObjects
         // 配置オブジェクトのパスを解決
         var dirPath = Paths.get(getCommandBelongScenarioDirectory(), command.getTarget());
 
+        var prefix = command.getPrefix().endsWith("/") ? command.getPrefix() : command.getPrefix() + "/";
+
         if (Files.isDirectory(dirPath)) {
             Files.list(dirPath).forEach(x -> {
                 logger.info("put object. target : {}", x);
                 var putObjectRequest = PutObjectRequest.builder()
                         .bucket(command.getBucket())
-                        .key(command.getPrefix())
+                        .key(prefix + x.getFileName().toString())
                         .build();
                 s3.putObject(putObjectRequest, x);
             });

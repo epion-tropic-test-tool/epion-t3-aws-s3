@@ -2,7 +2,9 @@
 package com.epion_t3.aws.s3.command.runner;
 
 import com.epion_t3.aws.core.configuration.AwsCredentialsProviderConfiguration;
+import com.epion_t3.aws.core.configuration.AwsSdkHttpClientConfiguration;
 import com.epion_t3.aws.core.holder.AwsCredentialsProviderHolder;
+import com.epion_t3.aws.core.holder.AwsSdkHttpClientHolder;
 import com.epion_t3.aws.s3.command.model.AwsS3ListObjects;
 import com.epion_t3.aws.s3.command.model.ListObjectsV2ContentsInfo;
 import com.epion_t3.aws.s3.messages.AwsS3Messages;
@@ -12,6 +14,7 @@ import com.epion_t3.core.exception.SystemException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.ListObjectsV2Request;
@@ -47,10 +50,18 @@ public class AwsS3ListObjectsRunner extends AbstractCommandRunner<AwsS3ListObjec
         var awsCredentialsProviderConfiguration = (AwsCredentialsProviderConfiguration) referConfiguration(
                 command.getCredentialsConfigRef());
 
-        var credencialsProvider = AwsCredentialsProviderHolder.getInstance()
+        var credentialsProvider = AwsCredentialsProviderHolder.getInstance()
                 .getCredentialsProvider(awsCredentialsProviderConfiguration);
 
-        var s3 = S3Client.builder().credentialsProvider(credencialsProvider).build();
+        var s3 = (S3Client) null;
+        if (StringUtils.isEmpty(command.getSdkHttpClientConfigRef())) {
+            s3 = S3Client.builder().credentialsProvider(credentialsProvider).build();
+        } else {
+            var sdkHttpClientConfiguration = (AwsSdkHttpClientConfiguration) referConfiguration(
+                    command.getSdkHttpClientConfigRef());
+            var sdkHttpClient = AwsSdkHttpClientHolder.getInstance().getSdkHttpClient(sdkHttpClientConfiguration);
+            s3 = S3Client.builder().credentialsProvider(credentialsProvider).httpClient(sdkHttpClient).build();
+        }
 
         // キーはスラッシュが含まれるため、そのまま保存するとエビデンスのパスが狂う
         // そのため、キーの末尾のファイル名のみをパスに利用する.

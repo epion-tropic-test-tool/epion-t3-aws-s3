@@ -54,6 +54,7 @@ dependencies {
 
     // S3
     api "software.amazon.awssdk:s3"
+    api project(':epion-t3-aws-core-dev')
 
     // JSON
     implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.3"

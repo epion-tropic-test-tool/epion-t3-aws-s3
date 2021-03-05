@@ -65,6 +65,7 @@ commands :
   summary : コマンドの概要（任意）
   description : コマンドの詳細（任意）
   credentialsConfigRef : 資格設定の参照
+  sdkHttpClientConfigRef : HTTPクライアント設定の参照
   target : 登録対象のファイルの相対パス
   bucket : s3のBucket
   key : s3のKey
@@ -92,6 +93,7 @@ commands :
   summary : コマンドの概要（任意）
   description : コマンドの詳細（任意）
   credentialsConfigRef : 資格設定の参照
+  sdkHttpClientConfigRef : HTTPクライアント設定の参照
   target : 登録対象のファイルの相対パス
   bucket : s3のBucket
   prefix : s3のPrefix
@@ -117,6 +119,8 @@ commands :
   command : 「AwsS3DeleteObjects」固定
   summary : コマンドの概要（任意）
   description : コマンドの詳細（任意）
+  credentialsConfigRef : 資格設定の参照
+  sdkHttpClientConfigRef : HTTPクライアント設定の参照
   bucket : s3のBucket
   prefix : s3のPrefix
 
@@ -141,6 +145,8 @@ commands :
   command : 「AwsS3ListObjects」固定
   summary : コマンドの概要（任意）
   description : コマンドの詳細（任意）
+  credentialsConfigRef : 資格設定の参照
+  sdkHttpClientConfigRef : HTTPクライアント設定の参照
   bucket : s3のBucket
   prefix : s3のPrefix
 
@@ -165,6 +171,8 @@ commands :
   command : 「AwsS3DeleteObject」固定
   summary : コマンドの概要（任意）
   description : コマンドの詳細（任意）
+  credentialsConfigRef : 資格設定の参照
+  sdkHttpClientConfigRef : HTTPクライアント設定の参照
   bucket : s3のBucket
   key : s3のKey
 
@@ -191,6 +199,7 @@ commands :
   summary : コマンドの概要（任意）
   description : コマンドの詳細（任意）
   credentialsConfigRef : 資格設定の参照
+  sdkHttpClientConfigRef : HTTPクライアント設定の参照
   bucket : s3のBucket
   key : s3のKey
 

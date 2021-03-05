@@ -5,6 +5,3 @@ pluginManagement {
     }
 }
 rootProject.name = 'epion-t3-aws-s3'
-
-include ':epion-t3-aws-core-dev'
-project(':epion-t3-aws-core-dev').projectDir = new File('../epion-t3-aws-core')

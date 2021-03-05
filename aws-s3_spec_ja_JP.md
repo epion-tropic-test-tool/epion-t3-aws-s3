@@ -222,5 +222,6 @@ commands :
 |:---|:---|
 |com.epion_t3.aws.s3.err.9003|対象（target）のバケット及びプレフィックスは存在しません.Bucket:{0}, Prefix:{1}|
 |com.epion_t3.aws.s3.err.9004|対象（target）はディレクトリを指定する必要があります. Target:{0}|
+|com.epion_t3.aws.s3.inf.0001|削除対象のオブジェクトが存在しませんでした. Target:{0}|
 |com.epion_t3.aws.s3.err.9001|対象（target）のバケット及びキーへアクセスできません.Bucket:{0}, Path:{1}|
 |com.epion_t3.aws.s3.err.9002|対象（target）のバケット及びキーは存在しません.Bucket:{0}, Path:{1}|

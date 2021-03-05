@@ -16,6 +16,9 @@ public enum AwsS3Messages implements Messages {
     /** 対象（target）はディレクトリを指定する必要があります. Target:{0} */
     AWS_S3_ERR_9004("com.epion_t3.aws.s3.err.9004"),
 
+    /** 削除対象のオブジェクトが存在しませんでした. Target:{0} */
+    AWS_S3_INF_0001("com.epion_t3.aws.s3.inf.0001"),
+
     /** 対象（target）のバケット及びキーへアクセスできません.Bucket:{0}, Path:{1} */
     AWS_S3_ERR_9001("com.epion_t3.aws.s3.err.9001"),
 

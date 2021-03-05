@@ -10,6 +10,7 @@ import com.epion_t3.aws.s3.messages.AwsS3Messages;
 import com.epion_t3.core.command.bean.CommandResult;
 import com.epion_t3.core.command.runner.impl.AbstractCommandRunner;
 import com.epion_t3.core.exception.SystemException;
+import com.epion_t3.core.message.MessageResolver;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -62,6 +63,11 @@ public class AwsS3DeleteObjectsRunner extends AbstractCommandRunner<AwsS3DeleteO
             listObjectsV2Iterable.contents().forEach(x -> {
                 deleteTargets.add(ObjectIdentifier.builder().key(x.key()).build());
             });
+
+            if (deleteTargets.isEmpty()) {
+                logger.info("target is none.");
+                return CommandResult.getSuccess();
+            }
 
             var deleteObjectsRequest = DeleteObjectsRequest.builder()
                     .bucket(command.getBucket())

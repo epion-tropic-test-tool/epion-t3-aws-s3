@@ -547,3 +547,7 @@ messages:
     message:
       - lang: ja_JP
         contents: "対象（target）はディレクトリを指定する必要があります. Target:{0}"
+  - id: com.epion_t3.aws.s3.inf.0001
+    message:
+      - lang: ja_JP
+        contents: "削除対象のオブジェクトが存在しませんでした. Target:{0}"

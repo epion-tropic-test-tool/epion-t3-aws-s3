@@ -4,38 +4,38 @@ package com.epion_t3.aws.s3.messages;
 import com.epion_t3.core.message.Messages;
 
 /**
- * aws-s3—pƒƒbƒZ[ƒW’è‹`Enum.<br>
+ * aws-s3ç”¨ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å®šç¾©Enum.<br>
  *
  * @author epion-t3-devtools
  */
 public enum AwsS3Messages implements Messages {
 
-  /** ‘ÎÛitargetj‚ÌƒoƒPƒbƒg‹y‚ÑƒvƒŒƒtƒBƒbƒNƒX‚Í‘¶İ‚µ‚Ü‚¹‚ñ.Bucket:{0}, Prefix:{1} */
+  /** å¯¾è±¡ï¼ˆtargetï¼‰ã®ãƒã‚±ãƒƒãƒˆåŠã³ãƒ—ãƒ¬ãƒ•ã‚£ãƒƒã‚¯ã‚¹ã¯å­˜åœ¨ã—ã¾ã›ã‚“.Bucket:{0}, Prefix:{1} */
   AWS_S3_ERR_9003("com.epion_t3.aws.s3.err.9003"),
 
-  /** ‘ÎÛitargetj‚ÍƒfƒBƒŒƒNƒgƒŠ‚ğw’è‚·‚é•K—v‚ª‚ ‚è‚Ü‚·. Target:{0} */
+  /** å¯¾è±¡ï¼ˆtargetï¼‰ã¯ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’æŒ‡å®šã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™. Target:{0} */
   AWS_S3_ERR_9004("com.epion_t3.aws.s3.err.9004"),
 
-  /** ‘ÎÛitargetj‚ÌƒoƒPƒbƒg‹y‚ÑƒL[‚ÖƒAƒNƒZƒX‚Å‚«‚Ü‚¹‚ñ.Bucket:{0}, Path:{1} */
+  /** å¯¾è±¡ï¼ˆtargetï¼‰ã®ãƒã‚±ãƒƒãƒˆåŠã³ã‚­ãƒ¼ã¸ã‚¢ã‚¯ã‚»ã‚¹ã§ãã¾ã›ã‚“.Bucket:{0}, Path:{1} */
   AWS_S3_ERR_9001("com.epion_t3.aws.s3.err.9001"),
 
-  /** ‘ÎÛitargetj‚ÌƒoƒPƒbƒg‹y‚ÑƒL[‚Í‘¶İ‚µ‚Ü‚¹‚ñ.Bucket:{0}, Path:{1} */
+  /** å¯¾è±¡ï¼ˆtargetï¼‰ã®ãƒã‚±ãƒƒãƒˆåŠã³ã‚­ãƒ¼ã¯å­˜åœ¨ã—ã¾ã›ã‚“.Bucket:{0}, Path:{1} */
   AWS_S3_ERR_9002("com.epion_t3.aws.s3.err.9002");
 
-  /** ƒƒbƒZ[ƒWƒR[ƒh */
+  /** ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰ */
   private String messageCode;
 
   /**
-   * ƒvƒ‰ƒCƒx[ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
+   * ãƒ—ãƒ©ã‚¤ãƒ™ãƒ¼ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
    *
-   * @param messageCode ƒƒbƒZ[ƒWƒR[ƒh
+   * @param messageCode ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰
    */
   private AwsS3Messages(final String messageCode) {
     this.messageCode = messageCode;
   }
 
   /**
-   * messageCode‚ğæ“¾‚µ‚Ü‚·.<br>
+   * messageCodeã‚’å–å¾—ã—ã¾ã™.<br>
    *
    * @return messageCode
    */

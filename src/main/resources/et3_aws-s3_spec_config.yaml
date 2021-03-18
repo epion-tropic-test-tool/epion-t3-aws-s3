@@ -97,14 +97,14 @@ commands:
         type: string
         summary:
           - lang: ja_JP
-            contents: "s3のBucket"
+            contents: "s3のBucketを指定します。"
       - order: 8
         name: key
         required: true
         type: string
         summary:
           - lang: ja_JP
-            contents: "s3のKey"
+            contents: "s3のKeyを指定します。"
   ##########################
   # AwsS3PutObject
   ##########################
@@ -188,14 +188,14 @@ commands:
         type: string
         summary:
           - lang: ja_JP
-            contents: "s3のBucket"
+            contents: "s3のBucketを指定します。"
       - order: 9
         name: key
         required: true
         type: string
         summary:
           - lang: ja_JP
-            contents: "s3のKey"
+            contents: "s3のKeyを指定します。"
   ##########################
   # AwsS3DeleteObject
   ##########################
@@ -268,14 +268,14 @@ commands:
         type: string
         summary:
           - lang: ja_JP
-            contents: "s3のBucket"
+            contents: "s3のBucketを指定します。"
       - order: 8
         name: key
         required: true
         type: string
         summary:
           - lang: ja_JP
-            contents: "s3のKey"
+            contents: "s3のKeyを指定します。"
   ##########################
   # AwsS3ListObjects
   ##########################
@@ -348,19 +348,19 @@ commands:
         type: string
         summary:
           - lang: ja_JP
-            contents: "s3のBucket"
+            contents: "s3のBucketを指定します。"
       - order: 8
         name: prefix
-        required: true
+        required: false
         type: string
         summary:
           - lang: ja_JP
-            contents: "s3のPrefix"
+            contents: "s3のPrefixを指定します。指定しない場合バケット直下となります。"
   ##########################
   # AwsS3DeleteObjects
   ##########################
   - id: AwsS3DeleteObjects
-    evidenceCommand: true
+    evidenceCommand: false
     assertCommand: false
     summary:
       - lang: ja_JP
@@ -428,14 +428,14 @@ commands:
         type: string
         summary:
           - lang: ja_JP
-            contents: "s3のBucket"
+            contents: "s3のBucketを指定します。"
       - order: 8
         name: prefix
-        required: true
+        required: false
         type: string
         summary:
           - lang: ja_JP
-            contents: "s3のPrefix"
+            contents: "s3のPrefixを指定します。指定しない場合バケット直下となります。"
   ##########################
   # AwsS3PutObjects
   ##########################
@@ -519,14 +519,14 @@ commands:
         type: string
         summary:
           - lang: ja_JP
-            contents: "s3のBucket"
+            contents: "s3のBucketを指定します。"
       - order: 9
         name: prefix
-        required: true
+        required: false
         type: string
         summary:
           - lang: ja_JP
-            contents: "s3のPrefix"
+            contents: "s3のPrefixを指定します。指定しない場合バケット直下となります。"
 #####################################
 # メッセージ定義
 #####################################

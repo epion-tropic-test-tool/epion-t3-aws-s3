@@ -65,7 +65,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     // devtools
-    devtoolsGenerator 'com.epion_t3:epion-t3-devtools-generator:0.0.2'
+    devtoolsGenerator 'com.epion_t3:epion-t3-devtools-generator:0.0.4'
 
 }
 

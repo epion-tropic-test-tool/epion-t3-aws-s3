@@ -53,10 +53,11 @@ public class AwsS3DeleteObjectsRunner extends AbstractCommandRunner<AwsS3DeleteO
 
         try {
 
-            var listObjectV2Request = ListObjectsV2Request.builder()
-                    .bucket(command.getBucket())
-                    .prefix(command.getPrefix())
-                    .build();
+            var prefix = StringUtils.isNotEmpty(command.getPrefix())
+                    ? command.getPrefix().endsWith("/") ? command.getPrefix() : command.getPrefix() + "/"
+                    : StringUtils.EMPTY;
+
+            var listObjectV2Request = ListObjectsV2Request.builder().bucket(command.getBucket()).prefix(prefix).build();
             var listObjectsV2Iterable = s3.listObjectsV2Paginator(listObjectV2Request);
 
             var deleteTargets = new ArrayList<ObjectIdentifier>();

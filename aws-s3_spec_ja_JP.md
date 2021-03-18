@@ -39,7 +39,7 @@ AmazonWebService（AWS）のSimpleStorageService（S3）への各種アクセス
 |:---|:---|:---|:---|
 |[AwsS3PutObject](#AwsS3PutObject)|AWS S3にオブジェクトを登録します。  |||
 |[AwsS3PutObjects](#AwsS3PutObjects)|AWS S3に指定されたディレクトリ配下のオブジェクトを登録します。  |||
-|[AwsS3DeleteObjects](#AwsS3DeleteObjects)|AWS S3からオブジェクトリストを削除します。  ||X|
+|[AwsS3DeleteObjects](#AwsS3DeleteObjects)|AWS S3からオブジェクトリストを削除します。  |||
 |[AwsS3ListObjects](#AwsS3ListObjects)|AWS S3からオブジェクトリストを取得します。  ||X|
 |[AwsS3DeleteObject](#AwsS3DeleteObject)|AWS S3からオブジェクトを取得します。  |||
 |[AwsS3GetObject](#AwsS3GetObject)|AWS S3からオブジェクトを取得します。  ||X|
@@ -67,8 +67,8 @@ commands :
   credentialsConfigRef : 資格設定の参照
   sdkHttpClientConfigRef : HTTPクライアント設定の参照
   target : 登録対象のファイルの相対パス
-  bucket : s3のBucket
-  key : s3のKey
+  bucket : s3のBucketを指定します。
+  key : s3のKeyを指定します。
 
 ```
 
@@ -95,8 +95,8 @@ commands :
   credentialsConfigRef : 資格設定の参照
   sdkHttpClientConfigRef : HTTPクライアント設定の参照
   target : 登録対象のファイルの相対パス
-  bucket : s3のBucket
-  prefix : s3のPrefix
+  bucket : s3のBucketを指定します。
+  prefix : s3のPrefixを指定します。指定しない場合バケット直下となります。
 
 ```
 
@@ -106,7 +106,7 @@ commands :
 AWS S3からオブジェクトリストを削除します。
 #### Command Type
 - Assert : No
-- Evidence : __Yes__
+- Evidence : No
 
 #### Functions
 - AWS S3からオブジェクトリストを削除します。
@@ -121,8 +121,8 @@ commands :
   description : コマンドの詳細（任意）
   credentialsConfigRef : 資格設定の参照
   sdkHttpClientConfigRef : HTTPクライアント設定の参照
-  bucket : s3のBucket
-  prefix : s3のPrefix
+  bucket : s3のBucketを指定します。
+  prefix : s3のPrefixを指定します。指定しない場合バケット直下となります。
 
 ```
 
@@ -147,8 +147,8 @@ commands :
   description : コマンドの詳細（任意）
   credentialsConfigRef : 資格設定の参照
   sdkHttpClientConfigRef : HTTPクライアント設定の参照
-  bucket : s3のBucket
-  prefix : s3のPrefix
+  bucket : s3のBucketを指定します。
+  prefix : s3のPrefixを指定します。指定しない場合バケット直下となります。
 
 ```
 
@@ -173,8 +173,8 @@ commands :
   description : コマンドの詳細（任意）
   credentialsConfigRef : 資格設定の参照
   sdkHttpClientConfigRef : HTTPクライアント設定の参照
-  bucket : s3のBucket
-  key : s3のKey
+  bucket : s3のBucketを指定します。
+  key : s3のKeyを指定します。
 
 ```
 
@@ -200,8 +200,8 @@ commands :
   description : コマンドの詳細（任意）
   credentialsConfigRef : 資格設定の参照
   sdkHttpClientConfigRef : HTTPクライアント設定の参照
-  bucket : s3のBucket
-  key : s3のKey
+  bucket : s3のBucketを指定します。
+  key : s3のKeyを指定します。
 
 ```
 

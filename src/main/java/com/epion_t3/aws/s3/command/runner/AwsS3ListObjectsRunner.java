@@ -35,6 +35,7 @@ public class AwsS3ListObjectsRunner extends AbstractCommandRunner<AwsS3ListObjec
      * オブジェクトマッパー.
      */
     private static final ObjectMapper objectMapper = new ObjectMapper();
+
     static {
         objectMapper.findAndRegisterModules();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
@@ -66,11 +67,10 @@ public class AwsS3ListObjectsRunner extends AbstractCommandRunner<AwsS3ListObjec
         // そのため、キーの末尾のファイル名のみをパスに利用する.
         var evidencePath = getEvidencePath("listObjects.json");
 
+        var prefix = StringUtils.isNotEmpty(command.getPrefix()) ? command.getPrefix() : StringUtils.EMPTY;
+
         try {
-            var listObjectV2Request = ListObjectsV2Request.builder()
-                    .bucket(command.getBucket())
-                    .prefix(command.getPrefix())
-                    .build();
+            var listObjectV2Request = ListObjectsV2Request.builder().bucket(command.getBucket()).prefix(prefix).build();
             var listObjectsV2Iterable = s3.listObjectsV2Paginator(listObjectV2Request);
             var listObjectsV2ContentsInfoList = listObjectsV2Iterable.contents()
                     .stream()

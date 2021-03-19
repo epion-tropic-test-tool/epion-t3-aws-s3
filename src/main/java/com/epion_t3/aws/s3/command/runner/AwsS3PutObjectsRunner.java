@@ -54,7 +54,9 @@ public class AwsS3PutObjectsRunner extends AbstractCommandRunner<AwsS3PutObjects
         // 配置オブジェクトのパスを解決
         var dirPath = Paths.get(getCommandBelongScenarioDirectory(), command.getTarget());
 
-        var prefix = command.getPrefix().endsWith("/") ? command.getPrefix() : command.getPrefix() + "/";
+        var prefix = StringUtils.isNotEmpty(command.getPrefix())
+                ? command.getPrefix().endsWith("/") ? command.getPrefix() : command.getPrefix() + "/"
+                : StringUtils.EMPTY;
 
         if (Files.isDirectory(dirPath)) {
             for (Path p : Files.list(dirPath).collect(Collectors.toList())) {

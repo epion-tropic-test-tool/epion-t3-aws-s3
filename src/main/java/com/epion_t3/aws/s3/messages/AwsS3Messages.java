@@ -26,7 +26,7 @@ public enum AwsS3Messages implements Messages {
     AWS_S3_ERR_9002("com.epion_t3.aws.s3.err.9002");
 
     /** メッセージコード */
-    private String messageCode;
+    private final String messageCode;
 
     /**
      * プライベートコンストラクタ<br>
